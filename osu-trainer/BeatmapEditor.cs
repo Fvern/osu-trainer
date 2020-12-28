@@ -15,21 +15,21 @@ using System.Windows.Forms;
 
 namespace osu_trainer
 {
-    public enum EditorState
+    internal enum EditorState
     {
         NOT_READY,
         READY,
         GENERATING_BEATMAP
     }
 
-    public enum BadBeatmapReason
+    internal enum BadBeatmapReason
     {
         NO_BEATMAP_LOADED,
         ERROR_LOADING_BEATMAP,
         EMPTY_MAP
     }
 
-    public class BeatmapEditor
+    internal class BeatmapEditor
     {
         private MainForm mainform;
         public BadBeatmapReason NotReadyReason;
