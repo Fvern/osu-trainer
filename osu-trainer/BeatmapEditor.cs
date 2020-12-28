@@ -211,9 +211,9 @@ namespace osu_trainer
             // Generate new mp3
             var audioFilePath = Path.Combine(JunUtils.GetBeatmapDirectoryName(OriginalBeatmap), exportBeatmap.AudioFilename);
             var newMp3 = "";
-            if (!File.Exists(audioFilePath))
+            string inFile = Path.Combine(Path.GetDirectoryName(OriginalBeatmap.Filename), OriginalBeatmap.AudioFilename);
+            if (!File.Exists(audioFilePath) && File.Exists(inFile))
             {
-                string inFile = Path.Combine(Path.GetDirectoryName(OriginalBeatmap.Filename), OriginalBeatmap.AudioFilename);
                 string outFile = exportBeatmap.AudioFilename;
 
                 SongSpeedChanger.GenerateAudioFile(inFile, outFile, BpmRate, ChangePitch, compensateForDT, HighQualityMp3s);
